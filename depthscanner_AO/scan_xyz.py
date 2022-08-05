@@ -40,7 +40,7 @@ if not selected_devices:
 
 ## Define PointCloud Scan - Returns depth at all points returned by scan
 # Plus Temporal filters
-def pcScan(): 
+def Scanxyz(): 
 
     # Declare pointcloud object, for calculating pointclouds and texture mappings
     pc = rs.pointcloud()
@@ -251,8 +251,8 @@ def pcScan():
        
     finally:
         _pipe.stop()
-        print("pcScan Complete.")
+        print("Scanxyz Complete.")
 
 
 if __name__ == "__main__":
-    s = pcScan()
+    s = Scanxyz()
