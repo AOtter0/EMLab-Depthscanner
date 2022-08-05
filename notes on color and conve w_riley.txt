@@ -1,0 +1,20 @@
+217,184,114,    #1 goldenrod
+251,229,166,    #2 yellow
+82,19,0,        #3 red
+54,31,29,       #4 scarlet
+0,0,0,          #5 black
+66,66,66,       #6 darker grey
+144,144,144,    #7 mid grey
+225,225,225,    #8 light grey
+255,255,255,    #9 white
+
+#alternative colors
+#255, 170, 170 pink or 255, 185, 178
+#255, 255, 170 yellow
+#170, 85, 0 "rusty red"
+#85, 0, 0 scarlet
+
+LNKM7BM - AQUAVEO - 
+
+localized process - looks at every within a certain radius and modifies each point relative to the nearby regions 
+		maybe thinking about the square of the area of points

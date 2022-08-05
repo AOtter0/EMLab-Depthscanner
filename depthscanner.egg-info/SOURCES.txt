@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+depthscanner/__init__.py
+depthscanner/scan.py
+depthscanner.egg-info/PKG-INFO
+depthscanner.egg-info/SOURCES.txt
+depthscanner.egg-info/dependency_links.txt
+depthscanner.egg-info/not-zip-safe
+depthscanner.egg-info/top_level.txt

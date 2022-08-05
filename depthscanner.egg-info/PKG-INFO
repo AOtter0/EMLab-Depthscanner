@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: depthscanner
+Version: 0.1
+Summary: Imports 3D points from an Intel Realsense Depth Camera into Rhino Grasshopper
+Home-page: https://github.com/ilmihur/depthscanner
+Author: Ilmar Hurkxkens
+Author-email: hurkxkens@arch.ethz.ch
+License: MIT
+License-File: LICENSE
