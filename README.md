@@ -1,15 +1,15 @@
 # Depthscanner
-Imports 3D points from an Intel Realsense Depth Camera into Rhino Grasshopper.
+Imports 3D points and color information from an Intel Realsense Depth Camera into Rhino Grasshopper.
 
 ## Dependencies
 - compas
 - pyrealsense2 (python version 2.7)
 - numpy
-- scipy
 
-## Author
+## Authors
 
 Ilmar Hurkxkens <<hurkxkens@arch.ethz.ch>> [@ilmihur](https://github.com/ilmihur/)
+Aaron O'Neill <<aoneill0@upenn.edu>> [@AOtter0](https://github.com/AOtter0)
 
 ## Getting Started
 
@@ -32,7 +32,8 @@ Now install `COMPAS` and the `pyrealsense2` libraries to interface with the Inte
     
 Clone the depthscanner repository from github to your local drive, and install the package in your active conda environment:
     
-    $ git clone https://github.com/ilmihur/depthscanner.git  
+    $ conda install -c anaconda git
+    $ git clone https://github.com/AOtter0/EMLab-Depthscanner.git 
     $ local_folder\ pip install -e depthscanner
     
 To verify your setup, start Python from the command line and run the following (when nothing happens the installation is successful):
