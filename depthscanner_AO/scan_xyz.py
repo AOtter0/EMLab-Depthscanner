@@ -217,9 +217,9 @@ def Scanxyz():
         ##~~~Color image not used~~~##
 
         ## Shape the image info to align with depth
-        rgb = np.asarray(upsample).reshape(w * h,3)
-        print("arrayed")
-        print(pts.dtype)
+        #rgb = np.asarray(upsample).reshape(w * h,3)
+        #print("arrayed")
+        #print(pts.dtype)
        
 
         #nonzero in both
