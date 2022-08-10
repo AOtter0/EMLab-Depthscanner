@@ -49,16 +49,20 @@ def Scanxyz():
     points = rs.points()
   
     # Create pipeline and config stream_align the streams #test between 848x480 and 1280x720
-    w = 1280
-    h = 720
+    w = 848
+    h = 480
     cfg.enable_stream(rs.stream.depth, w, h, rs.format.z16, 15) 
     cfg.enable_stream(rs.stream.color, w, h, rs.format.rgb8, 15)
     profile = cfg.resolve(_pipe)
 
 
-    ## Establish HIGH ACCURACY preset
+    ## Establish MEDIUM DENSITY preset
     # create pipeline
-    pipe_profile = _pipe.start(cfg)
+    try:
+        pipe_profile = _pipe.start(cfg)
+    except:
+        disable_streams = _pipe.disable_all_streams(cfg)
+        pipe_profile = _pipe.start(cfg)
 
     #define the depth sensor
     depth_sensor = pipe_profile.get_device().first_depth_sensor()
@@ -145,8 +149,8 @@ def Scanxyz():
 
         ##APPLY POST-PROCESSING FILTERS
         #Decimation Filter
-        decimation = rs.decimation_filter(2)
-        decimated_depth = decimation.process(depth_frame)
+        #decimation = rs.decimation_filter(2)
+        #decimated_depth = decimation.process(depth_frame)
         
         # Create a tuple of depth_frames for temporal filter 
         depth_frames = []
@@ -164,7 +168,7 @@ def Scanxyz():
         frame = []
         for x in range(10):
             frame = depth_frames[x]
-            frame = decimation.process(frame)
+            #frame = decimation.process(frame)
             frame = temporal.process(frame)
 
         ## Redefine depth frame from the temporal filter
