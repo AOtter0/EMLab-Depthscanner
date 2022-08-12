@@ -53,20 +53,7 @@ def resample(img_filepath):
         color_image = cv.merge((r, g, b))
         print("image processed")
         
-            #pal_src = "C:\Windows\System32\depthscanner\palette_src.bmp" ##GRASSHOPPER DOESN'T LIKE PIL TO OPEN BMP
-            #fo = open(pal_src)
-            #print("Name of the file: ", fo.name)
-            #print("Closed or not : ", fo.closed)
-            # Close opend file
-            #fo.close()
-            #np_src = Image.open("C:\Windows\System32\depthscanner\palette_src.bmp")
-            #pal_array = np.asarray(np_src)
-        
-            # read image using cv2 as numpy array
-            #pal_img = cv.imread(pal_src) 
 
-            # convert the color (necessary)
-            #pal_img = cv.cvtColor(pal_img, cv.COLOR_BGR2RGB) 
 
         # Make an array to build a bigger image to array 
         pal_array = [
@@ -103,13 +90,15 @@ def resample(img_filepath):
         #src = Image.fromarray(pal_array).convert('P')
         #src = src.resize((27,27))
         
-        #src.show()
+
         
         color_image = Image.fromarray(color_image)
         print("newarray")
         newimage = color_image.quantize(palette=pal_img, dither=0)
         print("quantized")
 
+        ##Enable this code to show the processed images. Use this for 'color debugging.'
+        #src.show()
         #src.show()
         #color_image.show()
         #newimage.show()

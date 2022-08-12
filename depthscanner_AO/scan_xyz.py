@@ -120,7 +120,7 @@ def Scanxyz():
 
 
 
-    ## OR we can load a json file
+    ## HERE we can load a JSON file
     jfile = open(r"C:\Windows\System32\depthscanner\test-MD-250D_D3T.json")
     as_json_object = json.load(jfile)
     print("jfile loaded")
