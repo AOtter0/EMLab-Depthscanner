@@ -57,21 +57,14 @@ def resample(img_filepath):
 
         # Make an array to build a bigger image to array 
         pal_array = [
-            #217, 184, 114,    #1 goldenrod
             226, 226, 115,      #dirty pastel yellow
-            #251,229,166,    #2 yellow
-            82, 19, 0,        #3 red
-            255, 170, 170,      #3 alt pink
-            #255, 185, 178,   #3 alt pink
-            54, 31, 29,       #4 scarlet
-            #170, 85, 0,     #"rusty red"
-            #200, 0, 0,      #rusty red alt
+            82, 19, 0,        # red
+            255, 170, 170,      # alt pink
+            54, 31, 29,       # scarlet
             160, 98, 84,     #rusty red alt 2
-            #0, 0, 0,          #5 black
-            66, 66, 66,       #6 darker grey
-            135, 135, 135,    #7 mid grey
-            210, 210, 210,    #8 light grey
-            #255,255,255,    #9 white
+            66, 66, 66,       # darker grey
+            135, 135, 135,    # mid grey
+            210, 210, 210,    # light grey
         ]
 
             #alternative colors
@@ -79,19 +72,22 @@ def resample(img_filepath):
             #255, 255, 170 yellow
             #170, 85, 0 "rusty red"
             #85, 0, 0 scarlet
+            ##255,255,255,    #9 white
+            #217, 184, 114,    #1 goldenrod
+            #251,229,166,    #2 yellow
+            #255, 185, 178,   #3 alt pink
+            #170, 85, 0,     #"rusty red"
+            #200, 0, 0,      #rusty red alt
+            #0, 0, 0,          #5 black
 
 
         #pallete = np.reshape(pal_array,(3,3))
 
-        # create a new image and place the palette in there
+        # Create a new image and place the palette in there
         pal_img = Image.new('P',(9,9))
         pal_img.putpalette(pal_array * 9)
-        #pal_img.show()
-        #src = Image.fromarray(pal_array).convert('P')
-        #src = src.resize((27,27))
-        
 
-        
+        ##Turn the image back into an array to be processed.        
         color_image = Image.fromarray(color_image)
         print("newarray")
         newimage = color_image.quantize(palette=pal_img, dither=0)
@@ -103,23 +99,15 @@ def resample(img_filepath):
         #color_image.show()
         #newimage.show()
 
-        #downsample = newimage.resize((int(w/2),int(h/2)))
-
         #Bring the image back to size and into cv2 format to save
-        #upsample = downsample.resize((w,h), PIL.Image.Resampling.BICUBIC )
         upsample = newimage.convert('RGB')
         upsample = np.asarray(upsample)
         upsample = cv.cvtColor(upsample, cv.COLOR_RGB2BGR)
     finally:
-        print("whoopsie")
+        print("Try this!")
     #upsample.save("EMtest_up.png")       
 
     print("exported")
-
-    #color_image.show()
-    #newimage.show()
-    #downsample.show()
-    #upsample.show()
 
     #save the finished image for FF to bring into GH
     head = os.path.splitext(img_filepath)[0]
