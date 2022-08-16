@@ -149,8 +149,8 @@ def Scanxyz():
 
         ##APPLY POST-PROCESSING FILTERS
         #Decimation Filter
-        #decimation = rs.decimation_filter(2)
-        #decimated_depth = decimation.process(depth_frame)
+        decimation = rs.decimation_filter(2)
+        decimated_depth = decimation.process(depth_frame)
         
         # Create a tuple of depth_frames for temporal filter 
         depth_frames = []
@@ -168,7 +168,7 @@ def Scanxyz():
         frame = []
         for x in range(10):
             frame = depth_frames[x]
-            #frame = decimation.process(frame)
+            frame = decimation.process(frame)
             frame = temporal.process(frame)
 
         ## Redefine depth frame from the temporal filter
