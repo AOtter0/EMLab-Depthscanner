@@ -10,9 +10,9 @@ import time
 
 
 
-print("engaged")
+print("Hello, EMLab.")
 
-#oldimage = Image.open("D:\OneDrive - PennO365\Research\EMLab\BayWatch\BayWatch\depthscanner\Test_Image.JPEG")
+#img_filepath = Image.open("D:\OneDrive - PennO365\Research\EMLab\BayWatch\BayWatch\depthscanner\Test_Image.JPEG")
 ## Perform the resampling
 def resample(img_filepath):
 
@@ -26,7 +26,6 @@ def resample(img_filepath):
     #print("Ready to go")
 
     print("resample start")
-    #img_filepath = r"C:\Users\aaron\Downloads\test.bmp"
 
     str_path = img_filepath
     path = Path(str_path)
@@ -52,8 +51,6 @@ def resample(img_filepath):
         r, g, b = cv.split(color_image)
         color_image = cv.merge((r, g, b))
         print("image processed")
-        
-
 
         # Make an array to build a bigger image to array 
         pal_array = [
