@@ -1,5 +1,5 @@
 {
   "TestFramework": "Pytest",
-  "Interpreter": "CondaEnv|CondaEnv|BayWatch",
-  "SuppressConfigureTestFrameworkPrompt": "true"
+  "SuppressConfigureTestFrameworkPrompt": "true",
+  "Interpreter": "CondaEnv|CondaEnv|BayWatch"
 }

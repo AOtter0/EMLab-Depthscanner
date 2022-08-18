@@ -9,24 +9,15 @@ from pathlib import Path
 import time
 
 
-
 print("engaged")
 
-#oldimage = Image.open("D:\OneDrive - PennO365\Research\EMLab\BayWatch\BayWatch\depthscanner\Test_Image.JPEG")
 ## Perform the resampling
 def resample(img_filepath):
 
-    #wait for any files to finish saving
-    #naptime = 3
-    #while naptime > 0:
-    #    print(naptime)
-    #    time.sleep(1)
-        #countdown
-    #    naptime -= 1
-    #print("Ready to go")
+    print("Hello, EMLab")
 
-    print("resample start")
-    #img_filepath = r"C:\Users\aaron\Downloads\test.bmp"
+    ##Place test filepath name below.
+    #img_filepath = r"D:\OneDrive - PennO365\Research\EMLab\Assets\22-0817_1614.bmp"
 
     str_path = img_filepath
     path = Path(str_path)
@@ -52,16 +43,7 @@ def resample(img_filepath):
         r, g, b = cv.split(color_image)
         color_image = cv.merge((r, g, b))
         print("image processed")
-        
-            #pal_src = "C:\Windows\System32\depthscanner\palette_src.bmp" ##GRASSHOPPER DOESN'T LIKE PIL TO OPEN BMP
-            #fo = open(pal_src)
-            #print("Name of the file: ", fo.name)
-            #print("Closed or not : ", fo.closed)
-            # Close opend file
-            #fo.close()
-            #np_src = Image.open("C:\Windows\System32\depthscanner\palette_src.bmp")
-            #pal_array = np.asarray(np_src)
-        
+       
             # read image using cv2 as numpy array
             #pal_img = cv.imread(pal_src) 
 
@@ -70,68 +52,50 @@ def resample(img_filepath):
 
         # Make an array to build a bigger image to array 
         pal_array = [
-            #217, 184, 114,    #1 goldenrod
-            226, 226, 115,      #dirty pastel yellow
-            #251,229,166,    #2 yellow
-            82, 19, 0,        #3 red
-            255, 170, 170,      #3 alt pink
-            #255, 185, 178,   #3 alt pink
-            54, 31, 29,       #4 scarlet
-            #170, 85, 0,     #"rusty red"
-            #200, 0, 0,      #rusty red alt
-            160, 98, 84,     #rusty red alt 2
-            #0, 0, 0,          #5 black
-            66, 66, 66,       #6 darker grey
-            135, 135, 135,    #7 mid grey
-            210, 210, 210,    #8 light grey
-            #255,255,255,    #9 white
+            145, 137, 115,      #dirty yellow
+            178, 150, 150,      # alt pink
+            60, 35, 35,         # scarlet
+            146, 115, 115,     #rusty red alt 2
+            45, 45, 45,        # darker grey
+            73, 73, 73,        # dark grey
+            102, 102, 102,     #mid grey 
+            135, 135, 135,       # light grey
+            175, 175, 175        #v light grey
         ]
 
             #alternative colors
             #255, 170, 170 pink or 255, 185, 178
             #255, 255, 170 yellow
-            #170, 85, 0 "rusty red"
+            #170, 85, 0 “rusty red”
             #85, 0, 0 scarlet
-
-
-        #pallete = np.reshape(pal_array,(3,3))
+            ##255,255,255,    #9 white
+            #217, 184, 114,    #1 goldenrod
+            #251,229,166,    #2 yellow
+            #255, 185, 178,   #3 alt pink
+            #170, 85, 0,     #”rusty red”
+            #200, 0, 0,      #rusty red alt
 
         # create a new image and place the palette in there
         pal_img = Image.new('P',(9,9))
         pal_img.putpalette(pal_array * 9)
         #pal_img.show()
-        #src = Image.fromarray(pal_array).convert('P')
-        #src = src.resize((27,27))
-        
-        #src.show()
         
         color_image = Image.fromarray(color_image)
         print("newarray")
         newimage = color_image.quantize(palette=pal_img, dither=0)
         print("quantized")
 
-        #src.show()
+        ##ENABLE THESE TO PREVIEW FILE
         #color_image.show()
         #newimage.show()
 
-        #downsample = newimage.resize((int(w/2),int(h/2)))
-
         #Bring the image back to size and into cv2 format to save
-        #upsample = downsample.resize((w,h), PIL.Image.Resampling.BICUBIC )
         upsample = newimage.convert('RGB')
         upsample = np.asarray(upsample)
         upsample = cv.cvtColor(upsample, cv.COLOR_RGB2BGR)
     finally:
-        print("whoopsie")
-    #upsample.save("EMtest_up.png")       
-
-    print("exported")
-
-    #color_image.show()
-    #newimage.show()
-    #downsample.show()
-    #upsample.show()
-
+        print("Preparing to save file.")
+     
     #save the finished image for FF to bring into GH
     head = os.path.splitext(img_filepath)[0]
     tail = os.path.splitext(img_filepath)[-1]
@@ -139,7 +103,8 @@ def resample(img_filepath):
     save_path = head+"_new"+tail
     #save_path2 = head+"_new"
     complete = cv.imwrite(save_path, upsample)
-    #complete = upsample.save()
+
+    print("exported")
 
     return save_path
 

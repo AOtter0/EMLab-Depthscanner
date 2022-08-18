@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\depthscanner",
     "\\depthscanner_AO"
   ],
-  "SelectedNode": "\\depthscanner_AO\\scan_xyz.py",
+  "SelectedNode": "\\depthscanner_AO\\resampler.py",
   "PreviewInSolutionExplorer": false
 }
