@@ -120,7 +120,7 @@ def Scanxyz():
 
 
 
-    ## OR we can load a json file
+    ## HERE we can load a JSON file
     jfile = open(r"C:\Windows\System32\depthscanner\test-MD-250D_D3T.json")
     as_json_object = json.load(jfile)
     print("jfile loaded")
@@ -149,8 +149,8 @@ def Scanxyz():
 
         ##APPLY POST-PROCESSING FILTERS
         #Decimation Filter
-        #decimation = rs.decimation_filter(2)
-        #decimated_depth = decimation.process(depth_frame)
+        decimation = rs.decimation_filter(2)
+        decimated_depth = decimation.process(depth_frame)
         
         # Create a tuple of depth_frames for temporal filter 
         depth_frames = []
@@ -168,7 +168,7 @@ def Scanxyz():
         frame = []
         for x in range(10):
             frame = depth_frames[x]
-            #frame = decimation.process(frame)
+            frame = decimation.process(frame)
             frame = temporal.process(frame)
 
         ## Redefine depth frame from the temporal filter
