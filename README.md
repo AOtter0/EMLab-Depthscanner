@@ -28,7 +28,7 @@ Now install `COMPAS` and the `pyrealsense2` libraries to interface with the Inte
 
     $ conda config --add channels conda-forge
     $ conda install COMPAS
-    $ pyhton -m compas_rhino.install -v 7.0
+    $ python -m compas_rhino.install -v 7.0
     $ pip install pyrealsense2
     $ pip install opencv-python
     
