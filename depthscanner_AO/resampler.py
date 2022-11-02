@@ -53,27 +53,16 @@ def resample(img_filepath):
         # Make an array to build a bigger image to array 
         pal_array = [
             145, 137, 115,      #dirty yellow
-            178, 150, 150,      # alt pink
+            146, 115, 115,      # alt pink
             60, 35, 35,         # scarlet
-            146, 115, 115,     #rusty red alt 2
             45, 45, 45,        # darker grey
             73, 73, 73,        # dark grey
             102, 102, 102,     #mid grey 
             135, 135, 135,       # light grey
-            175, 175, 175        #v light grey
+            175, 175, 175,        #v light grey
+            235, 235, 235,         #nearly white
+            178, 150, 150       #another red
         ]
-
-            #alternative colors
-            #255, 170, 170 pink or 255, 185, 178
-            #255, 255, 170 yellow
-            #170, 85, 0 “rusty red”
-            #85, 0, 0 scarlet
-            ##255,255,255,    #9 white
-            #217, 184, 114,    #1 goldenrod
-            #251,229,166,    #2 yellow
-            #255, 185, 178,   #3 alt pink
-            #170, 85, 0,     #”rusty red”
-            #200, 0, 0,      #rusty red alt
 
         # create a new image and place the palette in there
         pal_img = Image.new('P',(9,9))
